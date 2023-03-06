@@ -1,3 +1,3 @@
 export interface ApiPaths {
-  auth?: string;
+  auth: string;
 }

@@ -2,8 +2,12 @@
 import express, { Application } from 'express';
 // Cors
 import cors from 'cors';
+// Database Config
+import { dbConnection } from '../config';
 // Interfaces
 import { ApiPaths } from '../interfaces';
+// Routes
+import { authRoutes } from '../entities/routes';
 
 class Server {
   private app: Application;
@@ -18,19 +22,19 @@ class Server {
     }
 
     // DB Conection
-    //TODO:this.dbConnect();
+    this.dbConnect();
     // Init Methods
-    //TODO:this.routes();
+    this.routes();
     this.middlewares();
   }
 
   // DB Connect
   async dbConnect() {
-    throw Error( 'Method not yet implemented' );
+    await dbConnection();
   }
 
   routes() {
-    throw Error( 'Method not yet implemented' );
+    this.app.use( this.apiPaths.auth, authRoutes );
   }
 
   middlewares() {
@@ -43,7 +47,7 @@ class Server {
   listen() {
     this.app.listen( this.port, () => {
       console.clear();
-      console.log( `${ '[SERVER.LISTEN]'.green }: Listening on port ${ this.port.green }` );
+      console.log( `${ '[SERVER.LISTEN]'.bgGreen }: Listening on port ${ this.port.green }` );
     });
   }
 }

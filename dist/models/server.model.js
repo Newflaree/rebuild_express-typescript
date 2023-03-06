@@ -16,6 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 // Cors
 const cors_1 = __importDefault(require("cors"));
+// Database Config
+const config_1 = require("../config");
+// Routes
+const routes_1 = require("../entities/routes");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -24,19 +28,19 @@ class Server {
             auth: '/api/auth'
         };
         // DB Conection
-        //TODO:this.dbConnect();
+        this.dbConnect();
         // Init Methods
-        //TODO:this.routes();
+        this.routes();
         this.middlewares();
     }
     // DB Connect
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
-            throw Error('Method not yet implemented');
+            yield (0, config_1.dbConnection)();
         });
     }
     routes() {
-        throw Error('Method not yet implemented');
+        this.app.use(this.apiPaths.auth, routes_1.authRoutes);
     }
     middlewares() {
         // Cors 
@@ -47,7 +51,7 @@ class Server {
     listen() {
         this.app.listen(this.port, () => {
             console.clear();
-            console.log(`${'[SERVER.LISTEN]'.green}: Listening on port ${this.port.green}`);
+            console.log(`${'[SERVER.LISTEN]'.bgGreen}: Listening on port ${this.port.green}`);
         });
     }
 }
