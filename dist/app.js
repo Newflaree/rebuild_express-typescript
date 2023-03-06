@@ -22,8 +22,8 @@ __exportStar(require("colors"), exports);
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 // Server Model
-const models_1 = require("./models");
+const global_models_1 = require("./global-models");
 // Server Instance
-const server = new models_1.Server;
+const server = new global_models_1.Server;
 server.listen();
 //# sourceMappingURL=app.js.map

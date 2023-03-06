@@ -1,5 +1,5 @@
 // Interfaces
-import { UserProps } from '../../../interfaces';
+import { UserProps } from '../interfaces';
 // Mongoose
 import { model, Schema } from 'mongoose';
 

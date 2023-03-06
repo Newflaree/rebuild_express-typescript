@@ -3,7 +3,7 @@ export * from 'colors';
 import dotenv from 'dotenv';
 dotenv.config();
 // Server Model
-import { Server } from "./models";
+import { Server } from './global-models';
 
 // Server Instance
 const server = new Server;
