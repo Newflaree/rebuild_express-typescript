@@ -6,7 +6,8 @@ import { model, Schema } from 'mongoose';
 const ProductBrnadSchema = new Schema<ProductBrnadProps>({
   name: {
     type: String,
-    required: [ true, 'Product brand name is required' ]
+    required: [ true, 'Product brand name is required' ],
+    unique: true
   },
   user: {
     required: true,
