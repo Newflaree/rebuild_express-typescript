@@ -3,7 +3,7 @@ export interface UserProps {
   name: string;
   password: string;
   role: string;
-  status: boolean;
+  isActive: boolean;
 
   img?: string;
 };

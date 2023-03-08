@@ -24,8 +24,8 @@ class Server {
     // DB Conection
     this.dbConnect();
     // Init Methods
-    this.routes();
     this.middlewares();
+    this.routes();
   }
 
   // DB Connect

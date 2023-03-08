@@ -4,13 +4,14 @@ import { UserProps } from '../interfaces';
 import { model, Schema } from 'mongoose';
 
 const UserSchema = new Schema<UserProps>({
+  email: {
+    type: String,
+    required: [ true, 'Email is required' ],
+    unique: true
+  },
   name: {
     type: String,
     required: [ true, 'Name is required' ]
-  },
-  email: {
-    type: String,
-    required: [ true, 'Email is required' ]
   },
   password: {
     type: String,
@@ -23,7 +24,7 @@ const UserSchema = new Schema<UserProps>({
     type: String,
     default: 'USER_ROLE'
   },
-  status: {
+  isActive: {
     type: Boolean,
     default: true
   }
