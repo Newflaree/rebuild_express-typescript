@@ -14,7 +14,7 @@ const renewTokenService = async ( uid: string ) => {
     }
 
   } catch ( err ) {
-    console.log( `${ '[SERVICE-RENEW-TOKEN]'.bgRed }: ${ err }` );
+    console.log( `${ '[SERVICE.RENEW-TOKEN]'.bgRed }: ${ err }` );
   }
 }
 

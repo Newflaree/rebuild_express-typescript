@@ -22,7 +22,7 @@ const register = async ( req: Request, res: Response ) => {
     });
 
   } catch ( err ) {
-    console.log( `${ '[CONTROLLER-REGISTER]'.bgRed }: ${ err }` );
+    console.log( `${ '[CONTROLLER.REGISTER]'.bgRed }: ${ err }` );
     res.status( 500 ).json({
       ok: false,
       msg: 'Something went wrong. Talking the Admin.'

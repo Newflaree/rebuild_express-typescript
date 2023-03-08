@@ -7,7 +7,10 @@ import { dbConnection } from '../config';
 // Interfaces
 import { ApiPaths } from '../interfaces';
 // Routes
-import { authRoutes } from '../entities/routes';
+import {
+  authRoutes,
+  productbrandsRoutes
+} from '../entities/routes';
 
 class Server {
   private app: Application;
@@ -18,7 +21,8 @@ class Server {
     this.app = express();
     this.port = process.env.PORT || '3001';
     this.apiPaths = {
-      auth: '/api/auth'
+      auth: '/api/auth',
+      productBrands: '/api/product-brands'
     }
 
     // DB Conection
@@ -35,6 +39,7 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRoutes );
+    this.app.use( this.apiPaths.productBrands, productbrandsRoutes );
   }
 
   middlewares() {

@@ -23,7 +23,7 @@ const renewToken = async ( req: UserAuthRequest, res: Response ) => {
     });
 
   } catch ( err ) {
-    console.log( `${ '[CONTROLLER-RENEW-TOKEN]'.bgRed }: ${ err }` );
+    console.log( `${ '[CONTROLLER.RENEW-TOKEN]'.bgRed }: ${ err }` );
     res.status( 500 ).json({
       ok: false,
       msg: 'Something went wrong. Talking the Admin.'

@@ -39,7 +39,7 @@ const loginService = async ( email: string, password: string ) => {
     }
 
   } catch ( err ) {
-    console.log( `${ '[SERVICE-LOGIN]'.bgRed }: ${ err }` );
+    console.log( `${ '[SERVICE.LOGIN]'.bgRed }: ${ err }` );
   }
 }
 

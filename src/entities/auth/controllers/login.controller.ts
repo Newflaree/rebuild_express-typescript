@@ -26,7 +26,7 @@ const login = async ( req: Request, res: Response ) => {
     });
 
   } catch ( err ) {
-    console.log( `${ '[CONTROLLER-LOGIN]'.bgRed }: ${ err }` );
+    console.log( `${ '[CONTROLLER.LOGIN]'.bgRed }: ${ err }` );
     res.status( 500 ).json({
       ok: false,
       msg: 'Something went wrong. Talking the Admin.'

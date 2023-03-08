@@ -37,7 +37,7 @@ const registerService = async (
     }
 
   } catch ( err ) {
-    console.log( `${ '[SERVICE-REGISTER]'.bgRed }: ${ err }` );
+    console.log( `${ '[SERVICE.REGISTER]'.bgRed }: ${ err }` );
   }
 }
 
