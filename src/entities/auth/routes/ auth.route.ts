@@ -9,7 +9,7 @@ import {
 // Helpers
 import { emailValidation } from '../../../helpers';
 // Middlewares
-import { validateFields } from '../../../middlewares';
+import { validateFields, validateJWT } from '../../../middlewares';
 
 /*
  * PATH: /api/auth
@@ -30,6 +30,9 @@ router.post( '/login', [
   validateFields
 ],login );
 
-router.get( '/renew-token', renewToken );
+router.get( '/renew-token', [
+  validateJWT,
+  validateFields,
+],renewToken );
 
 export default router;
