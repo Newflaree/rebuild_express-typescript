@@ -40,6 +40,11 @@ router.put( '/:id', [
   check( 'id' ).custom( productBrandIdValidation ),
   validateFields
 ], updateProductBrandById );
-router.delete( '/:id', deleteProductBrandById );
+
+router.delete( '/:id', [
+  validateJWT,
+  check( 'id' ).custom( productBrandIdValidation ),
+  validateFields
+], deleteProductBrandById );
 
 export default router;

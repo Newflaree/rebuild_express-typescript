@@ -1,17 +1,23 @@
 // Express Framework
-import { Request, Response } from 'express';
+import { Response } from 'express';
+// Interfaces
+import { UserAuthRequest } from '../../../../interfaces';
 // Services
 import { deleteProductBrandByIdService } from '../services';
 
 /*
  * PATH: /api/product-brands/:id
  */
-const deleteProductBrandById = async ( req: Request, res: Response ) => {
+const deleteProductBrandById = async ( req: UserAuthRequest, res: Response ) => {
+  const { id } = req.params;
+
   try {
+    const results = await deleteProductBrandByIdService( id );
+    const msg = results?.msg;
 
     res.json({
       ok: true,
-      msg: 'deleteProductBrandById'
+      msg
     });
 
   } catch ( err ) {

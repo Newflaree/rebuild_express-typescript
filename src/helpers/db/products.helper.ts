@@ -17,7 +17,7 @@ export const productBrandNameValidation = async ( name: string ) => {
 export const productBrandIdValidation = async ( id: string ) => {
   const productBrandIdExists = await ProductBrand.findById( id );
 
-  if ( !productBrandIdExists ) {
+  if ( !productBrandIdExists || !productBrandIdExists?.isActive ) {
     throw new Error( 'There is no exists a product brand with that id' );
   }
 
