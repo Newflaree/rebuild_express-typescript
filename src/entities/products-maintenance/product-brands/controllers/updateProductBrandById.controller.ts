@@ -1,17 +1,25 @@
 // Express Framework
-import { Request, Response } from 'express';
+import { Response } from 'express';
+// Interfaces
+import { UserAuthRequest } from '../../../../interfaces';
 // Services
 import { updateProductBrandByIdService } from '../services';
 
 /*
  * PATH: /api/product-brands/:id
  */
-const updateProductBrandById = async ( req: Request, res: Response ) => {
+const updateProductBrandById = async ( req: UserAuthRequest, res: Response ) => {
+  const { name } = req.body;
+  const { _id } = req.user;
+  const { id } = req.params;
+
   try {
+    const results = await updateProductBrandByIdService( _id, id, name );
+    const productBrandUpdated = results?.productBrandUpdated;
 
     res.json({
       ok: true,
-      msg: 'updateProductBrandById'
+      productBrandUpdated
     });
 
   } catch ( err ) {

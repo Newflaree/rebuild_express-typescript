@@ -33,7 +33,13 @@ router.get( '/:id', [
   validateFields
 ], getProductBrandById );
 
-router.put( '/:id', updateProductBrandById );
+router.put( '/:id', [
+  validateJWT,
+  check( 'name', 'Product brand name is required' ).not().isEmpty(),
+  check( 'name' ).custom( productBrandNameValidation ),
+  check( 'id' ).custom( productBrandIdValidation ),
+  validateFields
+], updateProductBrandById );
 router.delete( '/:id', deleteProductBrandById );
 
 export default router;
