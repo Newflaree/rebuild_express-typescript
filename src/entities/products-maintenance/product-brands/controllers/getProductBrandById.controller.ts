@@ -7,11 +7,16 @@ import { getProductBrandByIdService } from '../services';
  * PATH: /api/product-brands/:id
  */
 const getProductBrandById = async ( req: Request, res: Response ) => {
+  const { id } = req.params;
+
   try {
+    const results = await getProductBrandByIdService( id );
+
+    const productBrand = results?.productBrand;
 
     res.json({
       ok: true,
-      msg: 'getProductBrandById'
+      productBrand
     });
 
   } catch ( err ) {

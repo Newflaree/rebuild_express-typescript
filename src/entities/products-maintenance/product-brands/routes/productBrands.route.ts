@@ -9,7 +9,7 @@ import {
   updateProductBrandById
 } from '../controllers';
 // Helpers
-import { productBrandNameValidation } from '../../../../helpers';
+import { productBrandIdValidation, productBrandNameValidation } from '../../../../helpers';
 // Middlewares
 import { validateFields, validateJWT } from '../../../../middlewares';
 
@@ -25,8 +25,14 @@ router.post( '/', [
   validateFields
 ], createProductBrand );
 
-router.get( '/', getProductBrands );
-router.get( '/:id', getProductBrandById );
+router.get( '/', [
+], getProductBrands );
+
+router.get( '/:id', [
+  check( 'id' ).custom( productBrandIdValidation ),
+  validateFields
+], getProductBrandById );
+
 router.put( '/:id', updateProductBrandById );
 router.delete( '/:id', deleteProductBrandById );
 
