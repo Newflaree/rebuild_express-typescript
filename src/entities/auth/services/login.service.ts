@@ -14,7 +14,7 @@ const loginService = async ( email: string, password: string ) => {
       return {
         statusCode: 401,
         ok: false,
-        msg: 'Password or email incorrect'
+        msg: 'Correo electrónico o contraseña incorrecta'
       }
     }
 
@@ -24,7 +24,7 @@ const loginService = async ( email: string, password: string ) => {
       return {
         statusCode: 401,
         ok: false,
-        msg: 'Password or email incorrect'
+        msg: 'Correo electrónico o contraseña incorrecta'
       }
     }
 

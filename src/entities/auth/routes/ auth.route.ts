@@ -17,16 +17,16 @@ import { validateFields, validateJWT } from '../../../middlewares';
 const router: Router = Router();
 
 router.post( '/register', [
-  check( 'email', 'Email is required' ).isEmail(),
-  check( 'name', 'Name is required' ).not().isEmpty(),
-  check( 'password', 'Pasword must be longer than 6 charactersa' ).isLength({ min: 6 }),
+  check( 'email', 'El correo electrónico es obligatorio' ).isEmail(),
+  check( 'name', 'El nombre de usuario el obligatorio' ).not().isEmpty(),
+  check( 'password', 'La contraseña debe tener al menos 6 carateres' ).isLength({ min: 6 }),
   check( 'email' ).custom(  emailValidation ),
   validateFields
 ], register );
 
 router.post( '/login', [
-  check( 'email', 'Email is required' ).isEmail(),
-  check( 'password', 'Password is required' ).not().isEmpty(),
+  check( 'email', 'El correo electrónico es obligatorio' ).isEmail(),
+  check( 'password', 'La contraseña es obligatoria' ).not().isEmpty(),
   validateFields
 ],login );
 

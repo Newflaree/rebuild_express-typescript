@@ -20,7 +20,7 @@ const router: Router = Router();
 
 router.post( '/', [
   validateJWT,
-  check( 'name', 'Product brand name is required' ).not().isEmpty(),
+  check( 'name', 'El nombre de la marca de productos es obligatorio' ).not().isEmpty(),
   check( 'name' ).custom( productBrandNameValidation ),
   validateFields
 ], createProductBrand );
@@ -35,7 +35,7 @@ router.get( '/:id', [
 
 router.put( '/:id', [
   validateJWT,
-  check( 'name', 'Product brand name is required' ).not().isEmpty(),
+  check( 'name', 'El nombre de la marca de productos es obligatorio' ).not().isEmpty(),
   check( 'name' ).custom( productBrandNameValidation ),
   check( 'id' ).custom( productBrandIdValidation ),
   validateFields
