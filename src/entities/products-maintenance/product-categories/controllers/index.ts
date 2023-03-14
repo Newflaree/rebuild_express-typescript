@@ -1,0 +1,5 @@
+export { default as createProductCategory } from './createProductCategory.controller'
+export { default as deleteProductCategoryById } from './deleteProductCategoryById.controller'
+export { default as getProductCategories } from './getProductCategories.controller'
+export { default as getProductCategoryById } from './getProductCategoryById.controller'
+export { default as updateProductCategoryById } from './updateProductCategoryById.controller'

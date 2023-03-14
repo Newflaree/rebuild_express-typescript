@@ -9,7 +9,8 @@ import { ApiPaths } from '../interfaces';
 // Routes
 import {
   authRoutes,
-  productbrandsRoutes
+  productBrandsRoutes,
+  productCategoriesRoutes
 } from '../entities/routes';
 
 class Server {
@@ -22,7 +23,8 @@ class Server {
     this.port = process.env.PORT || '3001';
     this.apiPaths = {
       auth: '/api/auth',
-      productBrands: '/api/product-brands'
+      productBrands: '/api/product-brands',
+      productCategories: '/api/product-categories'
     }
 
     // DB Conection
@@ -39,7 +41,8 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRoutes );
-    this.app.use( this.apiPaths.productBrands, productbrandsRoutes );
+    this.app.use( this.apiPaths.productBrands, productBrandsRoutes );
+    this.app.use( this.apiPaths.productCategories, productCategoriesRoutes );
   }
 
   middlewares() {

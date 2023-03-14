@@ -1,2 +1,2 @@
 export { authRoutes } from "./auth";
-export { productbrandsRoutes } from "./products-maintenance";
+export { productBrandsRoutes, productCategoriesRoutes } from "./products-maintenance";

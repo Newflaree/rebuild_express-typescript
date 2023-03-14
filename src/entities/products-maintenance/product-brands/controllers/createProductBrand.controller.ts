@@ -1,5 +1,5 @@
 // Express Framework
-import { Request, Response } from 'express';
+import { Response } from 'express';
 // Interfaces
 import { UserAuthRequest } from '../../../../interfaces';
 // Services
