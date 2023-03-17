@@ -5,3 +5,9 @@ export interface ProductBrnadProps {
   user: ObjectId;
   isActive: boolean;
 }
+
+export interface ProductCategoryProps {
+  name: string;
+  user: ObjectId;
+  isActive: boolean;
+}
