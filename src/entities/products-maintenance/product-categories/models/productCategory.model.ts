@@ -6,7 +6,7 @@ import { model, Schema } from 'mongoose';
 const ProductCategorySchema = new Schema<ProductCategoryProps>({
   name: {
     type: String,
-    required: [ true, 'Product brand name is required' ],
+    required: [ true, 'Product category name is required' ],
     unique: true
   },
   user: {
@@ -27,4 +27,4 @@ ProductCategorySchema.methods.toJSON = function() {
   return productCategory;
 };
 
-export default model<ProductCategoryProps>( 'ProductBrand', ProductCategorySchema );
+export default model<ProductCategoryProps>( 'ProductCategoy', ProductCategorySchema );

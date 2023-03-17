@@ -9,6 +9,7 @@ import {
   updateProductCategoryById
 } from '../controllers';
 // Helpers
+import { productCategoryNameValidation } from '../../../../helpers';
 // Middlewares
 import { validateFields, validateJWT } from '../../../../middlewares';
 
@@ -18,6 +19,10 @@ import { validateFields, validateJWT } from '../../../../middlewares';
 const router: Router = Router();
 
 router.post( '/', [
+  validateJWT,
+  check( 'name', 'El nombre de la categoría de productos es obligatorio' ).not().isEmpty(),
+  check( 'name' ).custom( productCategoryNameValidation ),
+  validateFields
 ], createProductCategory );
 
 router.get( '/', [

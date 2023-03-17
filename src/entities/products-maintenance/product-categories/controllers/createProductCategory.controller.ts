@@ -9,12 +9,16 @@ import { createProductCategoryService } from '../services';
  * PATH: /api/product-categories
  */
 const createProductCategory = async ( req: UserAuthRequest, res: Response ) => {
+  const { name } = req.body;
+  const { _id } = req.user;
 
   try {
+    const result = await createProductCategoryService( name, _id );
+    const newProductCategory = result?.newProductCategory ;
 
     res.json({
       ok: true,
-      msg: 'createProductCategory'
+      newProductCategory
     });
 
   } catch ( err ) {
