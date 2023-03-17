@@ -7,12 +7,19 @@ import { getProductCategoriesService } from '../services';
  * PATH: /api/product-categories
  */
 const getProductCategories = async ( req: Request, res: Response ) => {
+  const { from = 0, limit = 5 } = req.query;
+  const condition = { isActive: true };
 
   try {
+    const results = await getProductCategoriesService( condition, Number( from ), Number( limit ) );
+
+    const totalProductCategories = results?.totalProductCategories;
+    const productCategories = results?.productCategories;
 
     res.json({
       ok: true,
-      msg: 'getProductCategories'
+      totalProductCategories,
+      productCategories
     });
 
   } catch ( err ) {

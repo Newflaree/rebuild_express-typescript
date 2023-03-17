@@ -12,7 +12,7 @@ const getProductBrandsService = async (
       ProductBrand.find( condition )
         .skip( Number( from ) )
         .limit( Number( limit ) )
-    ])
+    ]);
 
     return {
       totalProductBrands,
