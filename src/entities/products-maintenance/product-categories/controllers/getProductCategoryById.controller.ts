@@ -7,12 +7,16 @@ import { getProductCategoryByIdService } from '../services';
  * PATH: /api/product-categories/:id
  */
 const getProductCategoryById = async ( req: Request, res: Response ) => {
+  const { id } = req.params;
 
   try {
+    const results = await getProductCategoryByIdService( id );
+
+    const productCategory = results?.productCategory;
 
     res.json({
       ok: true,
-      msg: 'getProductCategoryById'
+      productCategory
     });
 
   } catch ( err ) {

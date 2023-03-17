@@ -9,9 +9,15 @@ import {
   updateProductBrandById
 } from '../controllers';
 // Helpers
-import { productBrandIdValidation, productBrandNameValidation } from '../../../../helpers';
+import {
+  productBrandIdValidation,
+  productBrandNameValidation
+} from '../../../../helpers';
 // Middlewares
-import { validateFields, validateJWT } from '../../../../middlewares';
+import {
+  validateFields,
+  validateJWT
+} from '../../../../middlewares';
 
 /*
  * PATH: /api/product-brands

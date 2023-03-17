@@ -9,9 +9,15 @@ import {
   updateProductCategoryById
 } from '../controllers';
 // Helpers
-import { productCategoryNameValidation } from '../../../../helpers';
+import {
+  productCategoryIdValidation,
+  productCategoryNameValidation
+} from '../../../../helpers';
 // Middlewares
-import { validateFields, validateJWT } from '../../../../middlewares';
+import {
+  validateFields,
+  validateJWT
+} from '../../../../middlewares';
 
 /*
  * PATH: /api/product-categories
@@ -29,6 +35,8 @@ router.get( '/', [
 ], getProductCategories );
 
 router.get( '/:id', [
+  check( 'id' ).custom( productCategoryIdValidation ),
+  validateFields
 ], getProductCategoryById );
 
 router.put( '/:id', [
