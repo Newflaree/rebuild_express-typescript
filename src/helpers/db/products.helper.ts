@@ -1,6 +1,9 @@
 // Models
-import { ProductBrand } from '../../entities/products-maintenance/product-brands/models';
-import { ProductCategory } from '../../entities/products-maintenance/product-categories/models';
+import {
+  Product,
+  ProductBrand,
+  ProductCategory
+} from "../../entities/products-maintenance";
 
 /* =========================================
  * ProductBrands
@@ -42,6 +45,28 @@ export const productCategoryIdValidation = async ( id: string ) => {
   const productCategoryIdExists = await ProductCategory.findById( id );
 
   if ( !productCategoryIdExists || !productCategoryIdExists?.isActive ) {
+    throw new Error( 'No existe ninguna categoría de producto con ese ID' );
+  }
+
+  return true
+}
+/* =========================================
+ * Products
+   =========================================*/
+export const productNameValidation = async ( name: string ) => {
+  const productNameExists = await Product.findOne({ name });
+
+  if ( productNameExists ) {
+    throw new Error( 'Ya existe una categoría de producto con ese nombre' );
+  }
+
+  return true;
+}
+
+export const productIdValidation = async ( id: string ) => {
+  const productIdExists = await Product.findById( id );
+
+  if ( !productIdExists || !productIdExists?.isActive ) {
     throw new Error( 'No existe ninguna categoría de producto con ese ID' );
   }
 

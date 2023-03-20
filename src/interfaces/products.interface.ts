@@ -11,3 +11,15 @@ export interface ProductCategoryProps {
   user: ObjectId;
   isActive: boolean;
 }
+
+export interface ProductProps {
+  name: string;
+  descrition: string;
+  img: string;
+  stock: number;
+  price: string;
+  user: ObjectId;
+  brand: ObjectId;
+  category: ObjectId;
+  isActive: boolean;
+}

@@ -10,7 +10,8 @@ import { ApiPaths } from '../interfaces';
 import {
   authRoutes,
   productBrandsRoutes,
-  productCategoriesRoutes
+  productCategoriesRoutes,
+  productRoutes
 } from '../entities/routes';
 
 class Server {
@@ -24,7 +25,8 @@ class Server {
     this.apiPaths = {
       auth: '/api/auth',
       productBrands: '/api/product-brands',
-      productCategories: '/api/product-categories'
+      productCategories: '/api/product-categories',
+      products: '/api/products'
     }
 
     // DB Conection
@@ -43,6 +45,7 @@ class Server {
     this.app.use( this.apiPaths.auth, authRoutes );
     this.app.use( this.apiPaths.productBrands, productBrandsRoutes );
     this.app.use( this.apiPaths.productCategories, productCategoriesRoutes );
+    this.app.use( this.apiPaths.products, productRoutes );
   }
 
   middlewares() {
