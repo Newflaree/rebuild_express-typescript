@@ -20,7 +20,6 @@ export const productBrandNameValidation = async ( name: string ) => {
 }
 
 export const productBrandIdValidation = async ( id: string ) => {
-  console.log( id );
   const productBrandIdExists = await ProductBrand.findById( id );
 
   if ( !productBrandIdExists || !productBrandIdExists?.isActive ) {
@@ -44,7 +43,6 @@ export const productCategoryNameValidation = async ( name: string ) => {
 }
 
 export const productCategoryIdValidation = async ( id: string ) => {
-  console.log( id );
   const productCategoryIdExists = await ProductCategory.findById( id );
 
   if ( !productCategoryIdExists || !productCategoryIdExists?.isActive ) {
@@ -74,4 +72,20 @@ export const productIdValidation = async ( id: string ) => {
   }
 
   return true
+}
+
+export const productPriceFormater = ( price: string ) => {
+  if ( price.length <= 0 || price.length < 4 ) {
+    return price;
+  }
+
+  const formatedPrice = new Intl.NumberFormat('es-ES').format( Number( price || '' ) );
+
+  return String( formatedPrice );
+}
+
+export const productStockValidator = ( stock = 0 ) => {
+  if ( stock <= 0 ) return 0;
+
+  return stock;
 }

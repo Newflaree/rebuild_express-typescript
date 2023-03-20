@@ -1,5 +1,9 @@
+// Helpers
+import {
+  productPriceFormater,
+  productStockValidator
+} from '../../../../helpers';
 // Models
-import {ObjectId} from 'mongoose';
 import { Product } from '../models';
 
 
@@ -9,16 +13,16 @@ const createProductService = async (
   description: string,
   img: string,
   stock: number,
-  price: number,
-  brand: string | ObjectId,
-  category: string | ObjectId,
+  price: string,
+  brand: string,
+  category: string,
 ) => {
   const productData = {
     name,
     description,
     img,
-    stock,
-    price,
+    stock: productStockValidator( stock ),
+    price: productPriceFormater( price ),
     brand,
     user: uid,
     category
