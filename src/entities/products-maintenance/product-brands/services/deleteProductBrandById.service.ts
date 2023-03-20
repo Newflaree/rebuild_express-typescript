@@ -7,7 +7,7 @@ const deleteProductBrandByIdService = async ( id: string ) => {
     await ProductBrand.findByIdAndRemove( id );
 
     return {
-      msg: 'Marca de producto eliminada con éxito'
+      msg: 'La marca de producto fue eliminada con éxito'
     }
 
   } catch ( err ) {

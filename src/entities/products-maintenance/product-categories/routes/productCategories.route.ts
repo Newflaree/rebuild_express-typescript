@@ -50,6 +50,9 @@ router.put( '/:id', [
 ], updateProductCategoryById );
 
 router.delete( '/:id', [
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
+  check( 'id' ).custom( productCategoryIdValidation ),
+  validateFields
 ], deleteProductCategoryById );
 
 export default router;
