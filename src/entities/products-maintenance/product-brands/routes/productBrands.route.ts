@@ -35,6 +35,8 @@ router.get( '/', [
 ], getProductBrands );
 
 router.get( '/:id', [
+
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
   check( 'id' ).custom( productBrandIdValidation ),
   validateFields
 ], getProductBrandById );
@@ -43,12 +45,14 @@ router.put( '/:id', [
   validateJWT,
   check( 'name', 'El nombre de la marca de productos es obligatorio' ).not().isEmpty(),
   check( 'name' ).custom( productBrandNameValidation ),
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
   check( 'id' ).custom( productBrandIdValidation ),
   validateFields
 ], updateProductBrandById );
 
 router.delete( '/:id', [
   validateJWT,
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
   check( 'id' ).custom( productBrandIdValidation ),
   validateFields
 ], deleteProductBrandById );

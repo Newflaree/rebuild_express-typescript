@@ -35,11 +35,18 @@ router.get( '/', [
 ], getProductCategories );
 
 router.get( '/:id', [
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
   check( 'id' ).custom( productCategoryIdValidation ),
   validateFields
 ], getProductCategoryById );
 
 router.put( '/:id', [
+  validateJWT,
+  check( 'name', 'El nombre de la categoría de productos es obligatorio' ).not().isEmpty(),
+  check( 'name' ).custom( productCategoryNameValidation ),
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
+  check( 'id' ).custom( productCategoryIdValidation ),
+  validateFields
 ], updateProductCategoryById );
 
 router.delete( '/:id', [

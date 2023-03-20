@@ -10,8 +10,8 @@ import { updateProductBrandByIdService } from '../services';
  */
 const updateProductBrandById = async ( req: UserAuthRequest, res: Response ) => {
   const { name } = req.body;
-  const { _id } = req.user;
   const { id } = req.params;
+  const { _id } = req.user;
 
   try {
     const results = await updateProductBrandByIdService( _id, id, name );
