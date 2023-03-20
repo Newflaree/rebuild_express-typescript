@@ -1,4 +1,5 @@
 // Models
+import {ObjectId} from "mongoose";
 import {
   Product,
   ProductBrand,
@@ -19,6 +20,7 @@ export const productBrandNameValidation = async ( name: string ) => {
 }
 
 export const productBrandIdValidation = async ( id: string ) => {
+  console.log( id );
   const productBrandIdExists = await ProductBrand.findById( id );
 
   if ( !productBrandIdExists || !productBrandIdExists?.isActive ) {
@@ -42,6 +44,7 @@ export const productCategoryNameValidation = async ( name: string ) => {
 }
 
 export const productCategoryIdValidation = async ( id: string ) => {
+  console.log( id );
   const productCategoryIdExists = await ProductCategory.findById( id );
 
   if ( !productCategoryIdExists || !productCategoryIdExists?.isActive ) {
@@ -57,7 +60,7 @@ export const productNameValidation = async ( name: string ) => {
   const productNameExists = await Product.findOne({ name });
 
   if ( productNameExists ) {
-    throw new Error( 'Ya existe una categoría de producto con ese nombre' );
+    throw new Error( 'Ya existe un producto con ese nombre' );
   }
 
   return true;
@@ -67,7 +70,7 @@ export const productIdValidation = async ( id: string ) => {
   const productIdExists = await Product.findById( id );
 
   if ( !productIdExists || !productIdExists?.isActive ) {
-    throw new Error( 'No existe ninguna categoría de producto con ese ID' );
+    throw new Error( 'No existe ningún producto con ese ID' );
   }
 
   return true

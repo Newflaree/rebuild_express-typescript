@@ -1,4 +1,6 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+// Interfaces
+import { UserAuthRequest } from '../../../../interfaces';
 // Services
 import { createProductService } from '../services';
 
@@ -6,17 +8,35 @@ import { createProductService } from '../services';
 /*
  * PATH: /api/products
  */
-const createProduct = async ( req: Request, res: Response ) => {
+const createProduct = async ( req: UserAuthRequest, res: Response ) => {
+  const uid = req.user?.id;
+  const {
+    name,
+    description,
+    img,
+    stock,
+    price,
+    brand,
+    category
+  } = req.body;
 
   try {
-    const results = await createProductService();
+    const results = await createProductService(
+      uid,
+      name,
+      description,
+      img,
+      stock,
+      price,
+      brand,
+      category
+    );
 
-    //TODO: Remove this example when working it
-    const msg = results?.msg;
+    const newProduct = results?.newProduct;
 
     res.json({
       ok: true,
-      msg
+      newProduct
     });
 
   } catch ( err ) {

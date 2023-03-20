@@ -8,7 +8,7 @@ const ProductSchema = new Schema<ProductProps>({
     type: String,
     required: [ true, 'Product Name is required' ]
   },
-  descrition: {
+  description: {
     type: String,
     required: [ true, 'Product Description is required' ]
   },

@@ -14,7 +14,7 @@ export interface ProductCategoryProps {
 
 export interface ProductProps {
   name: string;
-  descrition: string;
+  description: string;
   img: string;
   stock: number;
   price: string;
