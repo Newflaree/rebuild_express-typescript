@@ -7,12 +7,15 @@ import { deleteProductByIdService } from '../services';
  * PATH: /api/products/:id
  */
 const deleteProductById = async ( req: Request, res: Response ) => {
+  const { id } = req.params;
 
   try {
-    const results = await deleteProductByIdService();
+    const results = await deleteProductByIdService( id );
+    const msg = results?.msg;
 
     res.json({
       ok: true,
+      msg
     });
 
   } catch ( err ) {

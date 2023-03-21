@@ -68,6 +68,10 @@ router.put( '/:id', [
 ], updateProductById );
 
 router.delete( '/:id', [
+  validateJWT,
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
+  check( 'id' ).custom( id => productIdValidation( id ) ),
+  validateFields
 ], deleteProductById );
 
 export default router;

@@ -2,11 +2,12 @@
 import { Product } from '../models';
 
 
-const deleteProductByIdService = async () => {
+const deleteProductByIdService = async ( id: string ) => {
   try {
+    await Product.findByIdAndRemove( id );
 
     return {
-      msg: 'deleteProductByIdService'
+      msg: 'El producto fue eliminado con éxito'
     }
 
   } catch ( err ) {
