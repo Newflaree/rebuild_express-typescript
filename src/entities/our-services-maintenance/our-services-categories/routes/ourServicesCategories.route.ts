@@ -1,6 +1,17 @@
 import { Request, Response, Router } from 'express';
 // Controllers
+import {
+  createOurServicesCategory,
+  deleteOurServicesCategoryById,
+  getOurServicesCategories,
+  getOurServicesCategoryById,
+  updateOurServicesCategoryById
+} from '../controllers';
 // Helpers
+import {
+  ourServicesCategoryNameValidation,
+  ourServicesCategoryIdValidation
+} from '../../../../helpers';
 // Middlewares
 import {
   validateAdminRole,
@@ -13,14 +24,18 @@ import {
  */
 const router: Router = Router()
 
-router.post( '/' );
+router.post( '/', [
+], createOurServicesCategory );
 
-router.get( '/', );
+router.get( '/', [
+], getOurServicesCategories );
 
-router.get( '/:id' );
+router.get( '/:id', [
+], getOurServicesCategoryById );
 
-router.put( '/:id' );
+router.put( '/:id', [
+], updateOurServicesCategoryById );
 
-router.delete( '/:id' );
+router.delete( '/:id', [], deleteOurServicesCategoryById );
 
 export default router;

@@ -15,7 +15,7 @@ export const ourServicesCategoryNameValidation = async ( name: string ) => {
   return true;
 }
 
-export const ourServcesCategoryIdValidation = async ( id: string ) => {
+export const ourServicesCategoryIdValidation = async ( id: string ) => {
   const ourServicesCategoryIdExists = await OurServiceCategory.findById( id );
 
   if ( !ourServicesCategoryIdExists || !ourServicesCategoryIdExists?.isActive ) {
