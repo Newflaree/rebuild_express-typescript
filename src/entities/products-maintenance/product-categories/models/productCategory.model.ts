@@ -5,8 +5,8 @@ import { model, Schema } from 'mongoose';
 
 const ProductCategorySchema = new Schema<ProductCategoryProps>({
   name: {
-    type: String,
     required: [ true, 'Product category name is required' ],
+    type: String,
     unique: true
   },
   user: {
