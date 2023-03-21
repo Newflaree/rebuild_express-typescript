@@ -7,16 +7,16 @@ import { getProductByIdService } from '../services';
  * PATH: /api/products/:id
  */
 const getProductById = async ( req: Request, res: Response ) => {
+  const { id } = req.params;
 
   try {
-    const results = await getProductByIdService();
+    const results = await getProductByIdService( id );
 
-    //TODO: Remove this example when working it
-    const msg = results?.msg;
+    const currentProduct = results?.currentProduct;
 
     res.json({
       ok: true,
-      msg
+      currentProduct
     });
 
   } catch ( err ) {

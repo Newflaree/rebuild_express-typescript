@@ -12,6 +12,7 @@ import {
 import {
   productBrandIdValidation,
   productCategoryIdValidation,
+  productIdValidation,
   productNameValidation
 } from '../../../../helpers';
 // Middlewares
@@ -44,6 +45,9 @@ router.get( '/', [
 ], getProducts );
 
 router.get( '/:id', [
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
+  check( 'id' ).custom( id => productIdValidation( id ) ),
+  validateFields
 ], getProductById );
 
 router.put( '/:id', [

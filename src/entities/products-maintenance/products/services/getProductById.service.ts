@@ -2,11 +2,15 @@
 import { Product } from '../models';
 
 
-const getProductByIdService = async () => {
+const getProductByIdService = async ( id: string ) => {
   try {
+    const currentProduct = await Product.findById( id )
+      .populate( 'user', 'name' )
+      .populate( 'brand', 'name' )
+      .populate( 'category', 'name' )
 
     return {
-      msg: 'getProductByIdService'
+      currentProduct
     }
 
   } catch ( err ) {
