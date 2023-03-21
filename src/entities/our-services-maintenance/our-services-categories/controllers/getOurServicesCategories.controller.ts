@@ -1,6 +1,7 @@
 // Express Framework
 import { Request, Response } from 'express';
 // Services
+import { getOurServicesCategoriesService } from '../services';
 
 
 /*
@@ -8,10 +9,12 @@ import { Request, Response } from 'express';
  */
 const getOurServicesCategories = async ( req: Request, res: Response ) => {
   try {
+    const results = await getOurServicesCategoriesService();
+    const msg = results?.msg;
 
     res.json({
       ok: true,
-      msg: 'getOurServicesCategories'
+      msg
     });
 
   } catch ( err ) {

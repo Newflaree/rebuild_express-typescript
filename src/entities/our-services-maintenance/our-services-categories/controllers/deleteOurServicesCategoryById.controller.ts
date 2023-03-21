@@ -3,6 +3,7 @@ import { Response } from 'express';
 // Interfaces
 import { UserAuthRequest } from '../../../../interfaces';
 // Services
+import { deleteOurServicesCategoryByIdService } from '../services';
 
 
 /*
@@ -10,10 +11,12 @@ import { UserAuthRequest } from '../../../../interfaces';
  */
 const deleteOurServicesCategoryById = async ( req: UserAuthRequest, res: Response ) => {
   try {
+    const results = await deleteOurServicesCategoryByIdService();
+    const msg = results?.msg;
 
     res.json({
       ok: true,
-      msg: 'deleteOurServicesCategoryById'
+      msg
     });
 
   } catch ( err ) {

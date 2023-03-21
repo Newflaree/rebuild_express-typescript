@@ -3,6 +3,7 @@ import { Response } from 'express';
 // Interfaces
 import { UserAuthRequest } from '../../../../interfaces';
 // Services
+import { updateOurServicesCategoryByIdService } from '../services';
 
 
 /*
@@ -10,10 +11,12 @@ import { UserAuthRequest } from '../../../../interfaces';
  */
 const updateOurServicesCategoryById = async ( req: UserAuthRequest, res: Response ) => {
   try {
+    const results = await updateOurServicesCategoryByIdService();
+    const msg = results?.msg;
 
     res.json({
       ok: true,
-      msg: 'updateOurServicesCategoryById'
+      msg
     });
 
   } catch ( err ) {
