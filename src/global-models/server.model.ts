@@ -9,6 +9,7 @@ import { ApiPaths } from '../interfaces';
 // Routes
 import {
   authRoutes,
+  ourServicesCategoriesRoutes,
   productBrandsRoutes,
   productCategoriesRoutes,
   productRoutes
@@ -24,6 +25,7 @@ class Server {
     this.port = process.env.PORT || '3001';
     this.apiPaths = {
       auth: '/api/auth',
+      ourServcesCategories: '/api/our-services-categories',
       productBrands: '/api/product-brands',
       productCategories: '/api/product-categories',
       products: '/api/products'
@@ -43,6 +45,7 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRoutes );
+    this.app.use( this.apiPaths.ourServcesCategories, ourServicesCategoriesRoutes );
     this.app.use( this.apiPaths.productBrands, productBrandsRoutes );
     this.app.use( this.apiPaths.productCategories, productCategoriesRoutes );
     this.app.use( this.apiPaths.products, productRoutes );
