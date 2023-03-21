@@ -15,6 +15,7 @@ import {
 } from '../../../../helpers';
 // Middlewares
 import {
+  validateAdminRole,
   validateFields,
   validateJWT
 } from '../../../../middlewares';
@@ -26,6 +27,7 @@ const router: Router = Router();
 
 router.post( '/', [
   validateJWT,
+  validateAdminRole,
   check( 'name', 'El nombre de la categoría de productos es obligatorio' ).not().isEmpty(),
   check( 'name' ).custom( name => productCategoryNameValidation( name ) ),
   validateFields
@@ -42,6 +44,7 @@ router.get( '/:id', [
 
 router.put( '/:id', [
   validateJWT,
+  validateAdminRole,
   check( 'name', 'El nombre de la categoría de productos es obligatorio' ).not().isEmpty(),
   check( 'name' ).custom( name => productCategoryNameValidation( name ) ),
   check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
@@ -50,6 +53,8 @@ router.put( '/:id', [
 ], updateProductCategoryById );
 
 router.delete( '/:id', [
+  validateJWT,
+  validateAdminRole,
   check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
   check( 'id' ).custom( id => productCategoryIdValidation( id ) ),
   validateFields
