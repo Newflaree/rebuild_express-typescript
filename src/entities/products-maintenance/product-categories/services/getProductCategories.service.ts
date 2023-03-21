@@ -10,6 +10,7 @@ const getProductCategoriesService = async (
     const [ totalProductCategories, productCategories ] = await Promise.all([
       ProductCategory.countDocuments( condition ),
       ProductCategory.find( condition )
+        .populate( 'user', 'name' )
         .skip( Number( from ) )
         .limit( Number( limit ) )
     ]);

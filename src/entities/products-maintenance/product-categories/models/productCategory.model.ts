@@ -27,4 +27,4 @@ ProductCategorySchema.methods.toJSON = function() {
   return productCategory;
 };
 
-export default model<ProductCategoryProps>( 'ProductCategoy', ProductCategorySchema );
+export default model<ProductCategoryProps>( 'ProductCategory', ProductCategorySchema );

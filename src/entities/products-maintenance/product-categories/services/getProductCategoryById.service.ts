@@ -4,7 +4,8 @@ import { ProductCategory } from '../models';
 
 const getProductCategoryByIdService = async ( id: string ) => {
   try {
-    const productCategory = await ProductCategory.findById( id );
+    const productCategory = await ProductCategory.findById( id )
+      .populate( 'user', 'name' );
 
     return {
       productCategory

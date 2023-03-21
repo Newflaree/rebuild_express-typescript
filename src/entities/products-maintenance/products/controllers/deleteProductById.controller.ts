@@ -11,12 +11,8 @@ const deleteProductById = async ( req: Request, res: Response ) => {
   try {
     const results = await deleteProductByIdService();
 
-    //TODO: Remove this example when working it
-    const msg = results?.msg;
-
     res.json({
       ok: true,
-      msg
     });
 
   } catch ( err ) {

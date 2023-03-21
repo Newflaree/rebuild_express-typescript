@@ -1,9 +1,9 @@
 // Interfaces
-import { ProductBrnadProps } from '../../../../interfaces';
+import { ProductBrandProps } from '../../../../interfaces';
 // Mongoose
 import { model, Schema } from 'mongoose';
 
-const ProductBrnadSchema = new Schema<ProductBrnadProps>({
+const ProductBrnadSchema = new Schema<ProductBrandProps>({
   name: {
     type: String,
     required: [ true, 'Product brand name is required' ],
@@ -27,4 +27,4 @@ ProductBrnadSchema.methods.toJSON = function() {
   return productBrand;
 };
 
-export default model<ProductBrnadProps>( 'ProductBrand', ProductBrnadSchema );
+export default model<ProductBrandProps>( 'ProductBrand', ProductBrnadSchema );

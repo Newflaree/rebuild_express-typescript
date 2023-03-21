@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongoose';
 
-export interface ProductBrnadProps {
+export interface ProductBrandProps {
   name: string;
   user: ObjectId;
   isActive: boolean;

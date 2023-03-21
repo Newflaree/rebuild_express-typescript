@@ -32,12 +32,12 @@ const ProductSchema = new Schema<ProductProps>({
   brand: {
     required: true,
     type: Schema.Types.ObjectId,
-    ref: 'ProductBrnad'
+    ref: 'ProductBrand'
   },
   category: {
     required: true,
     type: Schema.Types.ObjectId,
-    ref: 'ProductCategoy'
+    ref: 'ProductCategory'
   },
   isActive: {
     type: Boolean,

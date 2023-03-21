@@ -27,7 +27,7 @@ const router: Router = Router();
 router.post( '/', [
   validateJWT,
   check( 'name', 'El nombre de la marca de productos es obligatorio' ).not().isEmpty(),
-  check( 'name' ).custom( productBrandNameValidation ),
+  check( 'name' ).custom( name => productBrandNameValidation( name ) ),
   validateFields
 ], createProductBrand );
 
@@ -37,23 +37,23 @@ router.get( '/', [
 router.get( '/:id', [
 
   check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
-  check( 'id' ).custom( productBrandIdValidation ),
+  check( 'id' ).custom( id => productBrandIdValidation( id ) ),
   validateFields
 ], getProductBrandById );
 
 router.put( '/:id', [
   validateJWT,
   check( 'name', 'El nombre de la marca de productos es obligatorio' ).not().isEmpty(),
-  check( 'name' ).custom( productBrandNameValidation ),
+  check( 'name' ).custom( name => productBrandNameValidation( name ) ),
   check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
-  check( 'id' ).custom( productBrandIdValidation ),
+  check( 'id' ).custom( id => productBrandIdValidation( id ) ),
   validateFields
 ], updateProductBrandById );
 
 router.delete( '/:id', [
   validateJWT,
   check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
-  check( 'id' ).custom( productBrandIdValidation ),
+  check( 'id' ).custom( id => productBrandIdValidation( id ) ),
   validateFields
 ], deleteProductBrandById );
 

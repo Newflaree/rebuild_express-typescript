@@ -2,11 +2,25 @@
 import { Product } from '../models';
 
 
-const getProductsService = async () => {
+const getProductsService = async (
+  condition: object,
+  from: number,
+  limit: number
+) => {
   try {
+    const [ totalProducts, products ] = await Promise.all([
+      Product.countDocuments( condition ),
+      Product.find( condition )
+        .populate( 'user', 'name' )
+        .populate( 'brand', 'name' )
+        .populate( 'category', 'name' )
+        .skip( Number( from ) )
+        .limit( Number( limit ) )
+    ]);
 
     return {
-      msg: 'createProductService'
+      totalProducts,
+      products
     }
 
   } catch ( err ) {

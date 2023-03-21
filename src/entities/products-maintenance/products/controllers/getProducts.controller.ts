@@ -7,17 +7,20 @@ import { getProductsService } from '../services';
  * PATH: /api/products
  */
 const getProducts = async ( req: Request, res: Response ) => {
+  const { from = 0, limit = 5 } = req.query;
+  const condition = { isActive: true };
 
   try {
-    const results = await getProductsService();
+    const results = await getProductsService( condition, Number( from ), Number( limit ) );
 
-    //TODO: Remove this example when working it
-    const msg = results?.msg;
+    const totalProducts = results?.totalProducts;
+    const products = results?.products;
 
     res.json({
       ok: true,
-      msg
-    });
+      totalProducts,
+      products
+    })
 
   } catch ( err ) {
     console.log( `${ '[CONTROLLER.GET-PRODUCTS]'.bgRed }: ${ err }` );

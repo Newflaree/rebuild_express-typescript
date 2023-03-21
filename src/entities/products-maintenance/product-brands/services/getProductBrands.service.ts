@@ -10,6 +10,7 @@ const getProductBrandsService = async (
     const [ totalProductBrands, productBrands ] = await Promise.all([
       ProductBrand.countDocuments( condition ),
       ProductBrand.find( condition )
+        .populate( 'user', 'name' )
         .skip( Number( from ) )
         .limit( Number( limit ) )
     ]);

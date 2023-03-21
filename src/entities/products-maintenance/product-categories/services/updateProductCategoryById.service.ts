@@ -9,7 +9,8 @@ const updateProductCategoryByIdService = async ( uid: string, id: string, name: 
   }
 
   try {
-    const updatedProductCategory = await ProductCategory.findByIdAndUpdate( id, updateProductCategoryData, { new: true } );
+    const updatedProductCategory = await ProductCategory.findByIdAndUpdate( id, updateProductCategoryData, { new: true } )
+      .populate( 'user', 'name' );
 
     return {
       updatedProductCategory
