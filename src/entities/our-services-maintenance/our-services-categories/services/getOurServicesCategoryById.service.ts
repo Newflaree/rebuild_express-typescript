@@ -2,11 +2,15 @@
 import { OurServiceCategory } from '../models';
 
 
-const getOurServicesCategoryByIdService = async () => {
+const getOurServicesCategoryByIdService = async (
+  id: string
+) => {
   try {
+    const currentOurServicesCategory = await OurServiceCategory.findById( id )
+      .populate( 'user', 'name' );
 
     return {
-      msg: 'getOurServicesCategoryById.Service'
+      currentOurServicesCategory
     }
 
   } catch ( err ) {

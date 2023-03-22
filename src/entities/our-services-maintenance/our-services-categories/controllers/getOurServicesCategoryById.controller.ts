@@ -8,13 +8,14 @@ import { getOurServicesCategoryByIdService } from '../services';
  * PATH: /api/our-services-categories/:id
  */
 const getOurServicesCategoryById = async ( req: Request, res: Response ) => {
+  const { id } = req.params;
   try {
-    const results = await getOurServicesCategoryByIdService();
-    const msg = results?.msg;
+    const results = await getOurServicesCategoryByIdService( id );
+    const currentOurServicesCategory = results?.currentOurServicesCategory;
 
     res.json({
       ok: true,
-      msg
+      currentOurServicesCategory
     });
 
   } catch ( err ) {
