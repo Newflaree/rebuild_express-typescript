@@ -10,13 +10,16 @@ import { updateOurServicesCategoryByIdService } from '../services';
  * PATH: /api/our-services-categories/:id
  */
 const updateOurServicesCategoryById = async ( req: UserAuthRequest, res: Response ) => {
+  const uid = req.user._id;
+  const { id } = req.params;
+  const { name } = req.body;
+
   try {
-    const results = await updateOurServicesCategoryByIdService();
-    const msg = results?.msg;
+    const results = await updateOurServicesCategoryByIdService( uid, id, name );
+    const updatedOurServicesCategory = results?.updatedOurServicesCategory;
 
     res.json({
-      ok: true,
-      msg
+      updatedOurServicesCategory
     });
 
   } catch ( err ) {

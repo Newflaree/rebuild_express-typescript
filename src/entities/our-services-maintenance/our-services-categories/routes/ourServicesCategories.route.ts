@@ -43,6 +43,13 @@ router.get( '/:id', [
 ], getOurServicesCategoryById );
 
 router.put( '/:id', [
+  validateJWT,
+  validateAdminRole,
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
+  check( 'id' ).custom( id => ourServicesCategoryIdValidation( id ) ),
+  check( 'name', 'El nombre de la categoría del servicio es necesario' ).not().isEmpty(),
+  check( 'name' ).custom( name => ourServicesCategoryNameValidation( name ) ),
+  validateFields
 ], updateOurServicesCategoryById );
 
 router.delete( '/:id', [], deleteOurServicesCategoryById );
