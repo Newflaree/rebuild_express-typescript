@@ -52,6 +52,10 @@ router.put( '/:id', [
   validateFields
 ], updateOurServicesCategoryById );
 
-router.delete( '/:id', [], deleteOurServicesCategoryById );
+router.delete( '/:id', [
+  check( 'id', 'El ID no es un ID de Mongo' ).isMongoId(),
+  check( 'id' ).custom( id => ourServicesCategoryIdValidation( id ) ),
+  validateFields
+], deleteOurServicesCategoryById );
 
 export default router;

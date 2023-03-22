@@ -2,11 +2,14 @@
 import { OurServiceCategory } from '../models';
 
 
-const deleteOurServicesCategoryByIdService = async () => {
+const deleteOurServicesCategoryByIdService = async (
+  id: string
+) => {
   try {
+    await OurServiceCategory.findByIdAndDelete( id );
 
     return {
-      msg: 'deleteOurServicesCategoryById.Service'
+      msg: 'La categoría de servicios fue eliminada con éxito'
     }
 
   } catch ( err ) {

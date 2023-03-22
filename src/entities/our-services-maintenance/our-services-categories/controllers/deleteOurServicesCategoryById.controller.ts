@@ -10,8 +10,10 @@ import { deleteOurServicesCategoryByIdService } from '../services';
  * PATH: /api/our-services-categories/:id
  */
 const deleteOurServicesCategoryById = async ( req: UserAuthRequest, res: Response ) => {
+  const { id } = req.params;
+
   try {
-    const results = await deleteOurServicesCategoryByIdService();
+    const results = await deleteOurServicesCategoryByIdService( id );
     const msg = results?.msg;
 
     res.json({
