@@ -2,11 +2,23 @@
 import { OurServiceCategory } from '../models';
 
 
-const getOurServicesCategoriesService = async () => {
+const getOurServicesCategoriesService = async (
+  condition: object,
+  from: number,
+  limit: number
+) => {
   try {
+    const [ totalOurServicesCategories, ourServicesCategories ] = await Promise.all([
+      OurServiceCategory.countDocuments( condition ),
+      OurServiceCategory.find( condition )
+        .populate( 'user', 'name' )
+        .skip( Number( from ) )
+        .limit( Number( limit ) )
+    ]);
 
     return {
-      msg: 'getOurServicesCategories.Service'
+      totalOurServicesCategories,
+      ourServicesCategories
     }
 
   } catch ( err ) {

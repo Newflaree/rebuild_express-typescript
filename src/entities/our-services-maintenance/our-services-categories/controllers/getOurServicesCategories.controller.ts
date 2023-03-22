@@ -8,13 +8,17 @@ import { getOurServicesCategoriesService } from '../services';
  * PATH: /api/our-services-categories
  */
 const getOurServicesCategories = async ( req: Request, res: Response ) => {
+  const { from = 0, limit = 5 } = req.query;
+  const condition = { isActive: true };
   try {
-    const results = await getOurServicesCategoriesService();
-    const msg = results?.msg;
+    const results = await getOurServicesCategoriesService( condition, Number( from ), Number( limit ) );
+    const totalOurServicesCategories = results?.totalOurServicesCategories;
+    const ourServicesCategories = results?.ourServicesCategories;
 
     res.json({
       ok: true,
-      msg
+      totalOurServicesCategories,
+      ourServicesCategories
     });
 
   } catch ( err ) {
