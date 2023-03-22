@@ -10,13 +10,16 @@ import { createOurServicesCategoryService } from '../services';
  * PATH: /api/our-services-categories
  */
 const createOurServicesCategory = async ( req: UserAuthRequest, res: Response ) => {
+  const { name } = req.body;
+  const uid = req.user._id;
+
   try {
-    const results = await createOurServicesCategoryService();
-    const msg = results?.msg;
+    const results = await createOurServicesCategoryService( uid, name );
+    const newOurServiceCategory = results?.newOurServiceCategory;
 
     res.json({
       ok: true,
-      msg
+      newOurServiceCategory
     });
 
   } catch ( err ) {

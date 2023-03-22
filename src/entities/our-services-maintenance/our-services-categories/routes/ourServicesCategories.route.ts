@@ -1,4 +1,5 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import { check } from 'express-validator';
 // Controllers
 import {
   createOurServicesCategory,
@@ -25,6 +26,11 @@ import {
 const router: Router = Router()
 
 router.post( '/', [
+  validateJWT,
+  validateAdminRole,
+  check( 'name', 'El nombre de la categoría del servicio es necesario' ).not().isEmpty(),
+  check( 'name' ).custom( name => ourServicesCategoryNameValidation( name ) ),
+  validateFields
 ], createOurServicesCategory );
 
 router.get( '/', [
