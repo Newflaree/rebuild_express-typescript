@@ -3,7 +3,7 @@ import { ProductCategory } from '../models';
 
 const deleteProductCategoryByIdService = async ( id: string ) => {
   try {
-    await ProductCategory.findByIdAndRemove( id );
+    await ProductCategory.findByIdAndDelete( id );
 
     return {
       msg: 'La categoría de producto fue eliminada con éxito'

@@ -4,7 +4,7 @@ import { Product } from '../models';
 
 const deleteProductByIdService = async ( id: string ) => {
   try {
-    await Product.findByIdAndRemove( id );
+    await Product.findByIdAndDelete( id );
 
     return {
       msg: 'El producto fue eliminado con éxito'
