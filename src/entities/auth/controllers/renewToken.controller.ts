@@ -6,6 +6,8 @@ import { renewTokenService } from '../services';
 
 /*
  * PATH: /api/auth/renew-token
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: false
  */
 const renewToken = async ( req: UserAuthRequest, res: Response ) => {
   const { _id } = req.user;

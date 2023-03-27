@@ -7,6 +7,7 @@ const getProductsService = async (
   from: number,
   limit: number
 ) => {
+
   try {
     const [ totalProducts, products ] = await Promise.all([
       Product.countDocuments( condition ),

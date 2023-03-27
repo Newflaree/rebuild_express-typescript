@@ -5,8 +5,14 @@ import { deleteProductCategoryByIdService } from '../services';
 
 /*
  * PATH: /api/product-categories/:id
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const deleteProductCategoryById = async ( req: Request, res: Response ) => {
+const deleteProductCategoryById = async (
+  req: Request,
+  res: Response
+) => {
+
   const { id } = req.params;
 
   try {

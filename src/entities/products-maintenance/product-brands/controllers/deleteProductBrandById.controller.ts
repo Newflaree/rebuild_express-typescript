@@ -7,8 +7,13 @@ import { deleteProductBrandByIdService } from '../services';
 
 /*
  * PATH: /api/product-brands/:id
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const deleteProductBrandById = async ( req: UserAuthRequest, res: Response ) => {
+const deleteProductBrandById = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
   const { id } = req.params;
 
   try {

@@ -17,6 +17,7 @@ const createProductService = async (
   brand: string,
   category: string,
 ) => {
+
   const productData = {
     name,
     description,

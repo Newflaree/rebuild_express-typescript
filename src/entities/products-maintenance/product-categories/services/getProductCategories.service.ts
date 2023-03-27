@@ -6,6 +6,7 @@ const getProductCategoriesService = async (
   from: number,
   limit: number
 ) => {
+
   try {
     const [ totalProductCategories, productCategories ] = await Promise.all([
       ProductCategory.countDocuments( condition ),

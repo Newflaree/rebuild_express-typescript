@@ -7,8 +7,13 @@ import { updateProductBrandByIdService } from '../services';
 
 /*
  * PATH: /api/product-brands/:id
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const updateProductBrandById = async ( req: UserAuthRequest, res: Response ) => {
+const updateProductBrandById = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
   const { name } = req.body;
   const { id } = req.params;
   const { _id } = req.user;

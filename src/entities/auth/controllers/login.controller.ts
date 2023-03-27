@@ -5,6 +5,8 @@ import { loginService } from '../services';
 
 /*
  * PATH: /api/auth/login
+ * AUTH-REQUIRED: false
+ * ADMIN-REQUIRED: false
  */
 const login = async ( req: Request, res: Response ) => {
   const { email, password } = req.body;

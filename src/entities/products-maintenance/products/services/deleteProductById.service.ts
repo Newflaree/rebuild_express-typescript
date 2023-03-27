@@ -2,7 +2,10 @@
 import { Product } from '../models';
 
 
-const deleteProductByIdService = async ( id: string ) => {
+const deleteProductByIdService = async (
+  id: string
+) => {
+
   try {
     await Product.findByIdAndDelete( id );
 

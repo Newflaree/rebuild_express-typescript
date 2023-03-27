@@ -1,7 +1,9 @@
 import {User} from "../../../global-models";
 import {generateJWT} from "../../../helpers/jwt";
 
-const renewTokenService = async ( uid: string ) => {
+const renewTokenService = async (
+  uid: string
+) => {
   try {
     const [ user, token ] = await Promise.all([
       User.findById( uid ),

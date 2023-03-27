@@ -2,7 +2,9 @@
 import { ProductBrand } from '../models';
 
 
-const getProductBrandByIdService = async ( id: string ) => {
+const getProductBrandByIdService = async (
+  id: string
+) => {
   try {
     const productBrand = await ProductBrand.findById( id )
       .populate( 'user', 'name' );

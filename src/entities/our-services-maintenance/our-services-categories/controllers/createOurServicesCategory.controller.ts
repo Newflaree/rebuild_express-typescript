@@ -8,8 +8,13 @@ import { createOurServicesCategoryService } from '../services';
 
 /*
  * PATH: /api/our-services-categories
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const createOurServicesCategory = async ( req: UserAuthRequest, res: Response ) => {
+const createOurServicesCategory = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
   const { name } = req.body;
   const uid = req.user._id;
 

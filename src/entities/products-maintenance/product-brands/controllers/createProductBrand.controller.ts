@@ -7,8 +7,13 @@ import { createProductBrandService } from '../services';
 
 /*
  * PATH: /api/product-brands
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const createProductBrand = async ( req: UserAuthRequest, res: Response ) => {
+const createProductBrand = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
   const name = req.body.name;
   const { _id } = req.user;
 

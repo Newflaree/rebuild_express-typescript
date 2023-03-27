@@ -18,6 +18,7 @@ const updateProductByIdService = async (
   brand: string,
   category: string
 ) => {
+
   const updateProductData = {
     name: name.toUpperCase(),
     description,

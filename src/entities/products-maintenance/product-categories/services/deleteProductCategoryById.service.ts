@@ -1,7 +1,10 @@
 // Models
 import { ProductCategory } from '../models';
 
-const deleteProductCategoryByIdService = async ( id: string ) => {
+const deleteProductCategoryByIdService = async (
+  id: string
+) => {
+
   try {
     await ProductCategory.findByIdAndDelete( id );
 

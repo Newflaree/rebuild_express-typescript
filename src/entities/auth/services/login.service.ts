@@ -5,7 +5,10 @@ import { User } from '../../../global-models';
 import { generateJWT } from '../../../helpers/jwt';
 
 
-const loginService = async ( email: string, password: string ) => {
+const loginService = async (
+  email: string,
+  password: string
+) => {
   try {
     const logedUser = await User.findOne({ email });
 

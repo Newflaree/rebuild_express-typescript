@@ -1,7 +1,11 @@
 // Models
 import { ProductCategory } from '../models';
 
-const createProductCategoryService = async ( name: string, uid: string ) => {
+const createProductCategoryService = async (
+  name: string,
+  uid: string
+) => {
+
   const productCategoryData = {
     name: name.toUpperCase(),
     user: uid

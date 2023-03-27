@@ -5,8 +5,14 @@ import { getProductsService } from '../services';
 
 /*
  * PATH: /api/products
+ * AUTH-REQUIRED: false
+ * ADMIN-REQUIRED: false
  */
-const getProducts = async ( req: Request, res: Response ) => {
+const getProducts = async (
+  req: Request,
+  res: Response
+) => {
+
   const { from = 0, limit = 5 } = req.query;
   const condition = { isActive: true };
 

@@ -7,8 +7,14 @@ import { createProductCategoryService } from '../services';
 
 /*
  * PATH: /api/product-categories
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const createProductCategory = async ( req: UserAuthRequest, res: Response ) => {
+const createProductCategory = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
+
   const { name } = req.body;
   const { _id } = req.user;
 

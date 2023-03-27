@@ -8,8 +8,13 @@ import { deleteOurServicesCategoryByIdService } from '../services';
 
 /*
  * PATH: /api/our-services-categories/:id
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const deleteOurServicesCategoryById = async ( req: UserAuthRequest, res: Response ) => {
+const deleteOurServicesCategoryById = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
   const { id } = req.params;
 
   try {

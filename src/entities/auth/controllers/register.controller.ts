@@ -5,6 +5,8 @@ import { registerService } from '../services';
 
 /*
  * PATH: /api/auth/register
+ * AUTH-REQUIRED: false
+ * ADMIN-REQUIRED: false
  */
 const register = async ( req: Request, res: Response ) => {
   const { email, name, password } = req.body;

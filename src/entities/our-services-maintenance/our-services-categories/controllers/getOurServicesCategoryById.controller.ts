@@ -6,8 +6,13 @@ import { getOurServicesCategoryByIdService } from '../services';
 
 /*
  * PATH: /api/our-services-categories/:id
+ * AUTH-REQUIRED: false
+ * ADMIN-REQUIRED: false
  */
-const getOurServicesCategoryById = async ( req: Request, res: Response ) => {
+const getOurServicesCategoryById = async (
+  req: Request,
+  res: Response
+) => {
   const { id } = req.params;
   try {
     const results = await getOurServicesCategoryByIdService( id );

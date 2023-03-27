@@ -2,7 +2,10 @@
 import { ProductBrand } from '../models';
 
 
-const createProductBrandService = async ( name: string, uid: string ) => {
+const createProductBrandService = async (
+  name: string,
+  uid: string
+) => {
   const productBrandData = {
     name: name.toUpperCase(),
     user: uid

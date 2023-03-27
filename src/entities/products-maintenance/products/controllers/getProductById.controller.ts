@@ -5,8 +5,14 @@ import { getProductByIdService } from '../services';
 
 /*
  * PATH: /api/products/:id
+ * AUTH-REQUIRED: false
+ * ADMIN-REQUIRED: false
  */
-const getProductById = async ( req: Request, res: Response ) => {
+const getProductById = async (
+  req: Request,
+  res: Response
+) => {
+
   const { id } = req.params;
 
   try {

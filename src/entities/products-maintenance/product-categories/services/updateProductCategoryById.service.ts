@@ -2,7 +2,12 @@
 import { ProductCategory } from '../models';
 
 
-const updateProductCategoryByIdService = async ( uid: string, id: string, name: string ) => {
+const updateProductCategoryByIdService = async (
+  uid: string,
+  id: string,
+  name: string
+) => {
+
   const updateProductCategoryData = {
     name: name.toUpperCase(),
     user: uid

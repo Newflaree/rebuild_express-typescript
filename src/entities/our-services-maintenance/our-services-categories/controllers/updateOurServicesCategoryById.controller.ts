@@ -8,8 +8,13 @@ import { updateOurServicesCategoryByIdService } from '../services';
 
 /*
  * PATH: /api/our-services-categories/:id
+ * AUTH-REQUIRED: true
+ * ADMIN-REQUIRED: true
  */
-const updateOurServicesCategoryById = async ( req: UserAuthRequest, res: Response ) => {
+const updateOurServicesCategoryById = async (
+  req: UserAuthRequest,
+  res: Response
+) => {
   const uid = req.user._id;
   const { id } = req.params;
   const { name } = req.body;
